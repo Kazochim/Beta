@@ -17,17 +17,12 @@ Write-Host "============================================================" -Foreg
 Write-Host ""
 Write-Host "[1/4] Dang doc ma nguon tu $SourceFile..." -ForegroundColor Gray
 $rawContent = [System.IO.File]::ReadAllText($SourceFile, [System.Text.Encoding]::UTF8)
+# Loai bo Shebang (#!/...) neu co de ham load() cua Lua khong bi loi unexpected symbol near '#'
+if ($rawContent.StartsWith("#!")) {
+    $rawContent = $rawContent.Substring($rawContent.IndexOf("`n") + 1)
+}
 $rawBytes = [System.Text.Encoding]::UTF8.GetBytes($rawContent)
 Write-Host "      Kich thuoc ma nguon goc: $($rawBytes.Length) bytes" -ForegroundColor Green
-
-# 1. Tinh checksum Adler-32 don gian (Anti-Tamper)
-$a = 1
-$b = 0
-for ($i = 0; $i -lt $rawBytes.Length; $i++) {
-    $a = ($a + $rawBytes[$i]) % 65521
-    $b = ($b + $a) % 65521
-}
-$checksum = ($b -shl 16) -bor $a
 
 # 2. Tao mang key ngau nhien (16 bytes)
 $rand = New-Object System.Random
@@ -55,7 +50,7 @@ for ($i = 0; $i -lt $encBytes.Length; $i++) {
     [void]$sb.AppendFormat('\x{0:X2}', $encBytes[$i])
     if (($i + 1) % $chunkSize -eq 0 -or ($i + 1) -eq $encBytes.Length) {
         $chunks.Add($sb.ToString())
-        $sb.Clear()
+        [void]$sb.Clear()
     }
 }
 
@@ -96,7 +91,12 @@ for _0xS = 1, #_0xCHUNKS do
   end
 end
 
-local _0xRUN, _0xERR = load(_0x3c(_0xOUT), "=(core)", "t")
+local _0xDATA = _0x3c(_0xOUT)
+if _0xDATA:sub(1, 1) == "#" then
+  _0xDATA = _0xDATA:gsub("^[^\r\n]*[\r\n]+", "")
+end
+
+local _0xRUN, _0xERR = load(_0xDATA, "=(core)", "t")
 if not _0xRUN then
   error("[Runtime Error] Failed to load protected module: " .. tostring(_0xERR))
 end
