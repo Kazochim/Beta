@@ -73,7 +73,6 @@ $loaderCode = [System.Text.StringBuilder]::new()
 [void]$loaderCode.AppendLine('local _0x3c = table.concat')
 [void]$loaderCode.AppendLine('')
 [void]$loaderCode.AppendLine("local _0xKEYS = { $keysLua }")
-[void]$loaderCode.AppendLine("local _0xCHK = $checksum")
 [void]$loaderCode.AppendLine('local _0xCHUNKS = {')
 
 foreach ($c in $chunks) {
@@ -86,8 +85,6 @@ foreach ($c in $chunks) {
 $footer = @'
 local _0xOUT = {}
 local _0xIDX = 0
-local _0xA = 1
-local _0xB = 0
 
 for _0xS = 1, #_0xCHUNKS do
   local _0xSTR = _0xCHUNKS[_0xS]
@@ -95,16 +92,8 @@ for _0xS = 1, #_0xCHUNKS do
     _0xIDX = _0xIDX + 1
     local _0xBYT = _0x2b(_0xSTR, _0xI)
     local _0xK = _0xKEYS[((_0xIDX - 1) % #_0xKEYS) + 1]
-    local _0xDEC = (_0xBYT ~ _0xK) & 0xFF
-    _0xOUT[_0xIDX] = _0x1a(_0xDEC)
-    _0xA = (_0xA + _0xDEC) % 65521
-    _0xB = (_0xB + _0xA) % 65521
+    _0xOUT[_0xIDX] = _0x1a((_0xBYT ~ _0xK) & 0xFF)
   end
-end
-
-local _0xSUM = (_0xB << 16) | _0xA
-if _0xSUM ~= _0xCHK then
-  error("[Security Alert] Tampered or corrupted bytecode detected!")
 end
 
 local _0xRUN, _0xERR = load(_0x3c(_0xOUT), "=(core)", "t")
