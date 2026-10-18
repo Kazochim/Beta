@@ -20,8 +20,8 @@ printf '\n\033[1;33m[2/4] Cập nhật danh sách gói Termux...\033[0m\n'
 pkg update -y
 pkg upgrade -y
 
-printf '\n\033[1;33m[3/4] Cài đặt các gói phụ thuộc (Lua5.3, Curl, Git, Sqlite, Termux-API)...\033[0m\n'
-pkg install -y lua53 curl git android-tools sqlite termux-api
+printf '\n\033[1;33m[3/4] Cài đặt các gói phụ thuộc (Lua5.3, Curl, Git, Sqlite, Android-Tools)...\033[0m\n'
+pkg install -y lua53 curl git android-tools sqlite
 
 printf '\n\033[1;33m[4/4] Khởi tạo lệnh tắt toàn cục "rejoin"...\033[0m\n'
 BIN_DIR="/data/data/com.termux/files/usr/bin"
