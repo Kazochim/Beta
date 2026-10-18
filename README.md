@@ -1,27 +1,27 @@
-# 🚀 ROBLOX AUTO REJOIN PRO v2.2.0 (CLOUDPHONE & TERMUX EDITION)
+# 🚀 WAPE HUB - REJOIN TERMUX TOOL v2.3.0 (CLOUDPHONE & GIẢ LẬP)
 
-Công cụ menu tự động hóa chuyên nghiệp viết bằng **Lua 5.3** dành riêng cho **Cloudphone (UgPhone, LDCloud, Redfinger, VMOS...)** và **Termux Android**. Hỗ trợ tự động mở lại game khi văng (Anti-Crash), chống AFK 20 phút, nạp Cookie `.ROBLOSECURITY` trực tiếp vào app, chụp màn hình và gửi báo cáo phần cứng qua Discord Webhook.
+Công cụ menu tự động hóa chuyên nghiệp viết bằng **Lua 5.3** dành riêng cho **Cloudphone (UgPhone, LDCloud, Redfinger, VMOS...)** và **Termux Android / Giả lập (MuMu, LDPlayer)**. Hỗ trợ tự động mở lại game khi văng (Anti-Crash), chống AFK 20 phút, nạp Cookie `.ROBLOSECURITY` trực tiếp vào app, chụp màn hình, xả RAM định kỳ, ép đồ họa siêu nhẹ và gửi báo cáo phần cứng qua Discord Webhook.
 
 ---
 
-## 🖥️ Giao Diện Dashboard Mới (v2.2.0)
+## 🖥️ Giao Diện Wape Hub Dashboard (v2.3.0)
 
-Bảng điều khiển 2 cột đối xứng với thanh tiến trình trực quan:
+Bảng điều khiển 2 cột đối xứng hoàn hảo với thanh tiến trình trực quan:
 
 ```text
-  ╭─────────────────────────────────────┬────────────────────────────────────╮
-  │ 🎮 THÔNG TIN GAME & PHÒNG TREO      │ 👤 TÀI KHOẢN ROBLOX                │
-  │  • Place ID : 1234567890            │  • Tên User: GamerProVN            │
-  │  • Loại Phòng: [ SERVER VIP ]       │  • Số Dư   : 1,250 R$              │
-  │  • Gói App  : com.roblox.client     │  • Cookie  : [ ĐÃ XÁC THỰC ✓ ]     │
-  ├─────────────────────────────────────┼────────────────────────────────────┤
-  │ 📱 CLOUDPHONE & PHẦN CỨNG           │ 🔔 HỆ THỐNG GIÁM SÁT & WEBHOOK     │
-  │  • Tên Máy  : CloudPhone-01         │  • Webhook : [ ĐANG BẬT ● ]        │
-  │  • Quyền Su : [ ROOT ACTIVE ✓ ]     │  • Chống AFK 20p: Mỗi 15p          │
-  │  • Mức Pin  : [████████░░] 82% ⚡    │  • Quét Crash   : Mỗi 5s           │
-  │  • Nhiệt Độ : 36.5°C [MÁT]          │  • Báo Cáo Định : Mỗi 30p          │
-  │  • RAM Dùng : [█████░░░░░] 48%      │  • Thời Gian Chạy: 03h 45m         │
-  ╰─────────────────────────────────────┴────────────────────────────────────╯
+  ╭─────────────────────────────────────┬─────────────────────────────────────╮
+  │ 🎮 GAME & PHÒNG TREO                │ 👤 TÀI KHOẢN & TRẠNG THÁI           │
+  │  • Place ID   : 1234567890          │  • Tên User   : glosupisoran        │
+  │  • Phòng Game : [ SERVER VIP ]      │  • Trạng Thái : [ ONLINE ● ]        │
+  │  • Gói App    : com.roblox.client   │  • Cookie     : [ ĐÃ XÁC THỰC ✓ ]   │
+  ├─────────────────────────────────────┼─────────────────────────────────────┤
+  │ 📱 THIẾT BỊ & PHẦN CỨNG             │ 🔔 GIÁM SÁT & TỰ ĐỘNG HÓA           │
+  │  • Tên Máy    : CloudPhone-01       │  • Webhook    : [ ĐANG BẬT ● ]      │
+  │  • Quyền Root : [ ROOT ACTIVE ✓ ]   │  • Tự Xả RAM  : [ TỰ ĐỘNG XẢ ● ]    │
+  │  • Bộ Nhớ RAM : [████░░░░]  48%     │  • Chống AFK  : Mỗi 15p             │
+  │  • Mức Pin    : [████████] 100%     │  • Quét Crash : Mỗi 5s              │
+  │  • Nhiệt Độ   : 36.5°C [MÁT]        │  • Treo Game  : 03h 45m             │
+  ╰─────────────────────────────────────┴─────────────────────────────────────╯
 ```
 
 ---
@@ -30,17 +30,17 @@ Bảng điều khiển 2 cột đối xứng với thanh tiến trình trực qu
 
 ### 👉 Cách 1: Cài đặt tiêu chuẩn trên Cloudphone / Termux (Khuyên Dùng)
 
-Mở ứng dụng Termux trên Cloudphone và chạy các lệnh sau:
+Mở ứng dụng Termux trên Cloudphone và chạy lệnh 1 chạm duy nhất sau:
 
 ```bash
-# 1. Cài đặt git (nếu chưa có)
+pkg install -y git && git clone https://github.com/Kazochim/Beta.git && cd Beta && bash install.sh
+```
+
+*(Hoặc chạy từng bước nếu muốn):*
+```bash
 pkg install -y git
-
-# 2. Tải mã nguồn về máy
-git clone https://github.com/azka150104-hub/roblox-auto-rejoin.git
-
-# 3. Vào thư mục và chạy cài đặt tự động
-cd roblox-auto-rejoin
+git clone https://github.com/Kazochim/Beta.git
+cd Beta
 bash install.sh
 ```
 
@@ -90,13 +90,15 @@ echo "rejoin" >> ~/.bashrc
 
 ---
 
-## 🍪 HƯỚNG DẪN NẠP COOKIE ROBLOX TRÊN CLOUDPHONE (ROOT)
+## 🍪 HƯỚNG DẪN NẠP COOKIE ROBLOX TRÊN CLOUDPHONE & GIẢ LẬP (ROOT)
 
 1. Mở menu bằng lệnh `rejoin`, chọn mục **`[6] Quản Lý Tài Khoản Bằng Cookie`**.
-2. Chọn **`1) Dán Cookie .ROBLOSECURITY mới`**:
-   * Dán chuỗi cookie của tài khoản vào.
-   * Script sẽ tự gọi API lấy Username, ID và số dư Robux hiển thị lên Dashboard.
-3. Chọn tiếp **`3) Nạp Cookie trực tiếp vào ứng dụng Roblox`**:
+2. **Chọn cách nạp Cookie:**
+   * **Cách 1 - Dán trực tiếp:** Chọn `1) Dán Cookie .ROBLOSECURITY trực tiếp`.
+   * **Cách 2 - Đọc từ file TXT:** Chọn `2) 📂 Đọc & Nạp Cookie từ file text (.txt)`:
+     * Bạn chỉ cần tạo file `cookie.txt` (hoặc chép vào `/sdcard/Download/cookie.txt`).
+     * Hỗ trợ lưu nhiều tài khoản (mỗi dòng 1 cookie), script sẽ liệt kê danh sách cho bạn chọn tài khoản muốn nạp!
+3. Chọn tiếp **`4) Nạp Cookie trực tiếp vào ứng dụng Roblox (Dành cho Root)`**:
    * Script sẽ dùng quyền Root (`su`) để ghi cookie vào database SQLite của Roblox.
    * **Điểm đặc biệt:** Script tự động phân tích và `chown` trả lại quyền sở hữu UID/GID chính xác cho app Roblox, giúp Roblox mở lên nhận phiên đăng nhập ngay lập tức mà không bị lỗi crash/permission denied.
 4. Trở ra Menu chính, chọn **`[1] Bắt Đầu Giám Sát Crash`** để bắt đầu treo.
@@ -109,5 +111,23 @@ echo "rejoin" >> ~/.bashrc
 2. Mở menu script, vào mục **`[8] Cài Đặt Discord Webhook`** $\rightarrow$ Dán URL vào.
 3. Bật mục **`3) Báo cáo định kỳ`** (Ví dụ: `30` phút):
    * Cứ mỗi 30 phút, script sẽ tự động chụp màn hình Cloudphone.
-   * Gửi kèm bảng thông số Pin, RAM, Nhiệt độ máy, Tên tài khoản, Số dư Robux về Discord.
+   * Gửi kèm bảng thông số Pin, RAM, Nhiệt độ máy, Tên tài khoản, Trạng thái Online/Offline về Discord.
 4. Bất cứ khi nào Roblox bị văng hoặc mất mạng, script sẽ gửi cảnh báo khẩn và tự động mở lại game!
+
+---
+
+## 🧹 TỐI ƯU PHẦN CỨNG & XẢ RAM (CHO CLOUDPHONE YẾU)
+
+Vào mục **`[10] Tối Ưu RAM & Ép Đồ Họa Mức 1`**:
+* **Ép đồ họa Roblox về Mức 1:** Script tự động can thiệp file `GlobalBasicSettings_13.xml` của Roblox để khóa đồ họa ở mức thấp nhất (Manual Quality Level 1), giảm 50% tải GPU/CPU giúp máy luôn mát mẻ và không bị văng game.
+* **Xả bộ nhớ đệm RAM (Drop Caches):** Giải phóng bộ nhớ đệm ngay lập tức.
+* **Tự động xả RAM ngầm:** Khi bật, script sẽ tự động xả RAM mỗi 15 phút hoặc khi mức RAM vượt quá 82%.
+
+---
+
+## 🚀 CẬP NHẬT SCRIPT 1 CHẠM TỪ GITHUB
+
+Vào mục **`[11] Cập Nhật Script Từ GitHub`**:
+* Script tự động kiểm tra bản commit mới trên repository `Kazochim/Beta`.
+* Tự động chạy `git pull` đồng bộ code mới nhất và hỏi bạn có muốn khởi động lại ngay không. Không cần gõ bất kỳ lệnh nào trong Termux!
+
